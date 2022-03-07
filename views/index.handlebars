@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/css/uikit.min.css"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+  </head>
+
+  <body>
+
+    <section class="products uk-container">
+        <h1 class="uk-margin-large-top uk-margin-large-bottom">Ingrese productos</h1>
+
+        <form id="form" class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-1">
+                <input id="title-input" name="title" class="uk-input" type="text" placeholder="Nombre producto">
+            </div>
+            <div class="uk-width-1-1">
+                <input id="price-input" name="price" class="uk-input" type="number" placeholder="Precio">
+            </div>
+            {{!-- <div class="uk-width-1-1">
+                <input class="uk-input" type="file" placeholder="Imagen">
+            </div> --}}
+            <button type="submit" id="send-product-btn" class="uk-button uk-button-primary uk-margin-medium-top uk-margin-small-left">Enviar</button>
+        </form>
+
+        <table id="table" class="uk-table uk-table-divider">
+            <thead>
+                <tr>
+                    <th>Nombre producto</th>
+                    <th>Precio</th>
+                    <th>Url imagen</th>
+                </tr>
+            </thead>
+        </table>
+    </section>
+
+
+    <section id="centro-chat" class="uk-container uk-margin-xlarge-top">
+        <h2>Centro de mensajes</h2>
+        <p>Hola!, bienvenido a la aplicacion de chat. Ingresa tu email *</p>
+        <div id="input-user" class="uk-margin">
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input id="input-name" class="uk-input" type="email" placeholder="Ingrese su usuario" required="required">
+            </div>
+            <div id="validate-text"></div>
+        </div>
+
+    <div id="chat-container" class="uk-container uk-width-1-1 uk-padding-remove uk-margin-remove">
+      <div class="chat_body uk-width-1-1 uk-margin-large-bottom">
+        <div class="chat_names">
+          <div class="title uk-text-bold">People</div>
+          <ul id="user-list" class="name-list">
+            
+          </ul>
+        </div>
+        <div class="chat_messages">
+          <div class="chat_messages-wrapper">
+            <div class="message-header">
+              <span class="chat-with">Chat</span>
+            </div>
+            <div id="message-pool" class="messages">
+              
+              
+            </div>
+            <div class="controls">
+              <input id="message-input" placeholder="Enter message"/>
+              <button id="send-btn" class="uk-button uk-button-primary">Enviar</button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+</section>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit-icons.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/js/chat.js"></script>
+  <script src="/static/js/products.js"></script>
+</html>
