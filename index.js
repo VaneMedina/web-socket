@@ -63,11 +63,6 @@ io.on("connection", (socket) =>{
         socket.broadcast.emit("message", data)
     })
 
-    // socket.on("product", (data) =>{
-    //     productModel.save(data)
-    //     socket.broadcast.emit("product", data)
-    // })
-
     socket.emit("product", null)
 
     socket.on('reload', ()=> {
