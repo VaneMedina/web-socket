@@ -75,7 +75,7 @@ function validarInput(){
   }
 }
 
-sendBtn.addEventListener("click", (e) =>{
+sendBtn.addEventListener("click", async(e) =>{
   e.preventDefault()
   if (!messageInput.value){
     return
@@ -85,10 +85,9 @@ sendBtn.addEventListener("click", (e) =>{
     date : Date.now(),
     user: user.name
   }
-
   user.socket.emit("message", message)
   render(message)
-  messageInput.value = null
+  // messageInput.value = null
 })
 
 function render(data){
@@ -118,5 +117,3 @@ function addList(u){
   liEl.innerHTML = u.name
   userList.append(liEl)
 }
-
-

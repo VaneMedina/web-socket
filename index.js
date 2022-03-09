@@ -9,6 +9,7 @@ const { engine } = require('express-handlebars')
 const messageModel = new Message()
 const productModel = new Product()
 const productRouter = require('./routes/product');
+const chatRouter = require('./routes/chat');
 
 const app = express()
 const server = http.createServer(app)
@@ -16,6 +17,8 @@ const io = new Server(server)
 app.use("/static", express.static(path.join(__dirname, 'public')))
 
 app.use("/", productRouter)
+
+app.use("/", chatRouter)
 
 
 
@@ -37,6 +40,7 @@ const msg = []
 
 io.on("connection", (socket) =>{
     socket.emit("newUser", null)
+
     socket.on("I am", (name) =>{
         users[socket.id] = name
 
@@ -55,8 +59,7 @@ io.on("connection", (socket) =>{
     })
 
     socket.on("message", (data) =>{
-
-        msg.push(data)
+        messageModel.save(data)
         socket.broadcast.emit("message", data)
     })
 

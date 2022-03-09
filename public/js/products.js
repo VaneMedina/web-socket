@@ -21,7 +21,6 @@ form.addEventListener("submit", async (e) =>{
     renderTitle(formData)
     renderPrice(formData)
     renderFile(formData)
-    console.log(form)
     await fetch(`${form.baseURI}`, {
       method: 'POST',
       body: formData
