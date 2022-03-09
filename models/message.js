@@ -16,5 +16,10 @@ class Message {
             console.log(error);
         }
     }
+    async getAll(){
+        const dataFile = await fs.readFile(this.nameFile);
+        const messages = JSON.parse(dataFile);
+        return messages;
+    }
 }
 module.exports = Message;

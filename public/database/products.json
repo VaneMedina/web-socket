@@ -1,66 +1,8 @@
 [
   {
-    "title": "otro producto",
-    "price": "58"
-  },
-  {
-    "title": "otro producto",
-    "price": "58"
-  },
-  {
-    "title": "otro producto",
-    "price": "58"
-  },
-  {
-    "title": "otro producto",
-    "price": "58"
-  },
-  {
-    "title": "otro producto",
-    "price": "58"
-  },
-  {
-    "title": "un producto",
-    "price": "258"
-  },
-  {
-    "title": "un producto",
-    "price": "258"
-  },
-  {
-    "title": "un producto",
-    "price": "258"
-  },
-  {
-    "title": "tgfjhn",
-    "price": "45"
-  },
-  {
-    "title": "un producto",
-    "price": "258"
-  },
-  {
-    "title": "",
-    "price": ""
-  },
-  {
-    "title": "",
-    "price": ""
-  },
-  {
-    "title": "",
-    "price": ""
-  },
-  {
-    "title": "",
-    "price": ""
-  },
-  {
-    "title": "sdf",
-    "price": "25"
-  },
-  {
-    "title": "fsaf",
-    "price": "25"
+    "id": 1,
+    "title": "caramelos",
+    "price": "258",
+    "thumbnail": "\\static\\img\\thumbnail-1646799005863Screenshot 2022-03-08 at 11-34-26 Seguros Agropecuarios.png"
   }
 ]

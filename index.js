@@ -8,12 +8,17 @@ const { engine } = require('express-handlebars')
 
 const messageModel = new Message()
 const productModel = new Product()
-
+const productRouter = require('./routes/product');
 
 const app = express()
 const server = http.createServer(app)
 const io = new Server(server)
 app.use("/static", express.static(path.join(__dirname, 'public')))
+
+app.use("/", productRouter)
+
+
+
 
 app.engine('handlebars', engine({
     layoutsDir: path.join(__dirname, './views'),
@@ -31,7 +36,7 @@ const users = {}
 const msg = []
 
 io.on("connection", (socket) =>{
-
+    socket.emit("newUser", null)
     socket.on("I am", (name) =>{
         users[socket.id] = name
 
@@ -55,11 +60,16 @@ io.on("connection", (socket) =>{
         socket.broadcast.emit("message", data)
     })
 
-    socket.on("product", (data) =>{
-        productModel.save(data)
-        socket.broadcast.emit("product", data)
-    })
+    // socket.on("product", (data) =>{
+    //     productModel.save(data)
+    //     socket.broadcast.emit("product", data)
+    // })
 
+    socket.emit("product", null)
+
+    socket.on('reload', ()=> {
+        io.sockets.emit('refresh', null)
+      })
 
 
 })
