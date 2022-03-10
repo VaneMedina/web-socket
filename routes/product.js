@@ -7,13 +7,10 @@ const router = new Router();
 
 const producto = new Product();
 
-router.get('/', async(req, res)=>{
-    try{
-        const products = await producto.getAll();
-        res.render('index', { products });
-    }catch(error){
-        res.status(404).send({ error : error})
-    }
+router.get("/", async (req, res) =>{
+    await producto.loadData()
+    const products = await producto.getAll()
+    res.send(products)
 })
 
 

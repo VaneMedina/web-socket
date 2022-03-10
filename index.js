@@ -3,11 +3,9 @@ const path = require('path')
 const http = require('http')
 const { Server  } = require('socket.io')
 const Message = require('./models/message')
-const Product = require('./models/product')
 const { engine } = require('express-handlebars')
 
 const messageModel = new Message()
-const productModel = new Product()
 const productRouter = require('./routes/product');
 const chatRouter = require('./routes/chat');
 
@@ -16,7 +14,7 @@ const server = http.createServer(app)
 const io = new Server(server)
 app.use("/static", express.static(path.join(__dirname, 'public')))
 
-app.use("/", productRouter)
+app.use("/api/productos", productRouter)
 
 app.use("/", chatRouter)
 
