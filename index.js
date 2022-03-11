@@ -6,6 +6,7 @@ const Message = require('./models/message')
 const { engine } = require('express-handlebars')
 
 const messageModel = new Message()
+
 const productRouter = require('./routes/product');
 const chatRouter = require('./routes/chat');
 
@@ -16,7 +17,7 @@ app.use("/static", express.static(path.join(__dirname, 'public')))
 
 app.use("/api/productos", productRouter)
 
-app.use("/", chatRouter)
+app.use("/api/mensajes", chatRouter)
 
 
 
@@ -57,7 +58,7 @@ io.on("connection", (socket) =>{
     })
 
     socket.on("message", (data) =>{
-        messageModel.save(data)
+        messageModel.create(data)
         socket.broadcast.emit("message", data)
     })
 

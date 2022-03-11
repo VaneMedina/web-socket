@@ -1,12 +1,12 @@
 [
   {
-    "message": "hola anto",
-    "date": 1646834141502,
-    "user": "p@o.com"
+    "body": "hola anto",
+    "to": "1646834141502",
+    "from": "p@o.com"
   },
   {
-    "message": "hola anto",
-    "date": 1646835129654,
-    "user": "p@p.com"
+    "body": "hola anto",
+    "to": "1646835129654",
+    "from": "p@p.com"
   }
 ]

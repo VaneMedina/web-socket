@@ -31,7 +31,7 @@ form.addEventListener("submit", async (e) =>{
 
 //renderizar productos
 function renderProduct(){
-  fetch('/static/database/products.json')
+  fetch(`${form.baseURI}api/productos`)
         .then((res) => {
             return res.json()
         })
@@ -47,7 +47,6 @@ function renderProduct(){
               </tbody>`
           })
         })
-      
   }
 
 

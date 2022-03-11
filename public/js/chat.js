@@ -65,8 +65,7 @@ function validarEmail( email ) {
     }else{
       validate(regex.test(email))
     }
-    
-
+  
 }
 
 function validarInput(){
@@ -81,9 +80,9 @@ sendBtn.addEventListener("click", async(e) =>{
     return
   }
   const message = {
-    message : messageInput.value,
-    date : Date.now(),
-    user: user.name
+    body : messageInput.value,
+    to : Date.now(),
+    from: user.name
   }
   user.socket.emit("message", message)
   render(message)
@@ -92,14 +91,14 @@ sendBtn.addEventListener("click", async(e) =>{
 
 function render(data){
   const msgElement = document.createElement("div")
-  const cssClass = data.user == user.name ? "local" : "remote"
+  const cssClass = data.from == user.from ? "local" : "remote"
   msgElement.classList.toggle(cssClass)
   msgElement.innerHTML = `
   <div class="message-data uk-text-small ${cssClass == "local" ? "align-right" : "" }">
-      <span class="user">${data.user}</span>
-      <span class="date-time">${new Date(data.date).toLocaleString()}</span> &nbsp;
+      <span class="user">${data.from}</span>
+      <span class="date-time">${new Date(data.to).toLocaleString()}</span> &nbsp;
   </div>
-  <div class="message-body">${data.message}</div>`
+  <div class="message-body">${data.body}</div>`
   msgPool.appendChild(msgElement)
   msgPool.scrollTop = msgPool.scrollHeight
 }
